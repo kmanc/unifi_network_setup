@@ -127,4 +127,16 @@ mv <path>/config.gateway.json /srv/unifi/data/sites/default
 chown unifi:unifi /srv/unifi/data/sites/default/config.gateway.json
 ```
 
-And that's it! Provision your USG just to verify, but now you should be able to OpenVPN back to home from your client. For me that means running `sudo openvpn client.ovpn` and then typing in the password to my client's key file, but for you that might meaning a GUI or some other method
+And that's it! Provision your USG just to verify, but now you should be able to OpenVPN back to home from your client. For me that means running `sudo openvpn client.ovpn` and then typing in the password to my client's key file, but for you that might meaning a GUI or some other method. If you're interested in further reading, or which places I pieced together to get my stuff up and running, here are some reference materials.
+
+##### Step 1
+  * https://openvpn.net/community-resources/how-to/
+
+##### Step 2
+  * https://www.youtube.com/watch?v=LTBE8YiPhkg
+  * https://community.ui.com/questions/OpenVPN-Setup-and-Configuration-on-UniFi-Security-Gateway-Step-by-Step-Guide/2a12e083-03fe-47de-be21-36e7cbba6ccb
+  * http://www.forshee.me/2016/03/16/ubiquiti-edgerouter-lite-setup-part-5-openvpn-setup.html
+  * https://community.ui.com/questions/How-To-OpenVPN-Server-Configuration-on-the-USG/ce26860f-c0f1-4158-aa27-f8a68a09b4de
+
+##### Step 3
+  * https://community.ui.com/questions/USG-that-is-adopted-by-controller-does-not-keep-changes-made-in-CLI-once-rebooted/a72389cb-bce4-448f-b834-137187884bac
