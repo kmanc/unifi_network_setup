@@ -73,9 +73,9 @@ set encryption aes256
 set hash sha256
 # Chose any private IP subnet you like, but this one tends to avoid collisions in my experience
 set server subnet 172.16.0.0/24
-# I chose to add a path for my VPN client to reach machines on my 192.168.1.0/24 subnet. You may or may not care to do this step
-set server push-route 192.168.1.0/24
-set server name-server 192.168.1.1
+# I chose to add a path for my VPN client to reach machines on my 192.168.4.0/24 subnet. You may or may not care to do this step
+set server push-route 192.168.4.0/24
+set server name-server 192.168.4.1
 set tls ca-cert-file /config/auth/ca.crt
 set tls cert-file /config/auth/server.crt
 set tls key-file /config/auth/server.key
