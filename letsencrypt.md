@@ -2,22 +2,28 @@
 
 #### This part is gonna be shorter with less explanation until / unless it get's to a spot that I want to dedicate more time to. Right now there isn't a great solution for renewals
 
-Install letsencrypt on the cloud key
+Install letsencrypt on the cloud key or machine of choice (I chose my macbook)
 
 `apt install letsencrypt`
+`brew install certbot`
 
 
 Run it on your domain
 
-`certbot certonly --manual --preferred-challenges dns -d *.<your_domain>`
+`certbot certonly --manual --preferred-challenges dns -d "*.<your_domain>"`
 
 
 Follow instructions and add the DNS TXT record in your registrar's UI
+Wait a sec, then confirm the certbot CLI as per request
 
 
-Go to where the certs went
+Go to where the certs went or SCP them to your CloudKey
 
 `/etc/letsencrypt/live/<your_domain>`
+`sudo scp /etc/letsencrypt/archive/<your_domain>/privkey.pem user@X.X.X.X:/`
+`sudo scp /etc/letsencrypt/archive/<your_domain>/fullchain.pem user@X.X.X.X:/`
+`sudo scp /etc/letsencrypt/archive/<your_domain>/chain.pem user@X.X.X.X:/`
+`sudo scp /etc/letsencrypt/archive/<your_domain>cert.pem user@X.X.X.X:/`
 
 
 Move them to where they need to be
@@ -56,3 +62,7 @@ Restart things
 `service unifi start`
 
 `reboot now`
+
+When it comes time to renew
+
+`certbot renew`
