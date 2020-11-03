@@ -5,6 +5,7 @@
 Install letsencrypt on the cloud key or machine of choice (I chose my macbook)
 
 `apt install letsencrypt`
+
 `brew install certbot`
 
 
@@ -20,9 +21,13 @@ Wait a sec, then confirm the certbot CLI as per request
 Go to where the certs went or SCP them to your CloudKey
 
 `/etc/letsencrypt/live/<your_domain>`
+
 `sudo scp /etc/letsencrypt/archive/<your_domain>/privkey.pem user@X.X.X.X:/`
+
 `sudo scp /etc/letsencrypt/archive/<your_domain>/fullchain.pem user@X.X.X.X:/`
+
 `sudo scp /etc/letsencrypt/archive/<your_domain>/chain.pem user@X.X.X.X:/`
+
 `sudo scp /etc/letsencrypt/archive/<your_domain>cert.pem user@X.X.X.X:/`
 
 
