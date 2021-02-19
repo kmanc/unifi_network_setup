@@ -33,7 +33,7 @@ Go to where the certs went or SCP them to your CloudKey
 
 Move them to where they need to be
 
-`mv *.pem /etc/ssl/private`
+`mv *.pem /data/unifi-core/config/cert_components`
 
 
 Package a pkcs 12 bundle (you'll have to set a password here)
@@ -46,28 +46,17 @@ Import to the cloud key keystore
 `keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircontrolenterprise -destkeystore /usr/lib/unifi/data/keystore -srckeystore <your_domain>.p12 -srcstoretype PKCS12 -srcstorepass <your_certificate_password> -alias unifi`
 
 
-Copy to the filenames nginx wants
+Copy to the filenames unifi-core wants
 
-`cp fullchain.pem /etc/ssl/private/cloudkey.crt`
+`cp fullchain.pem /data/unifi-core/config/unifi-core.crt`
 
-`cp privkey.pem /etc/ssl/private/cloudkey.key`
+`cp privkey.pem /data/unifi-core/config/unifi-core.key`
 
 
 Fix permissions
 
-`chown root:ssl-cert /etc/ssl/private/*`
-
-`chmod 640 /etc/ssl/private/*`
-
+`chmod 640 /data/unifi-core/config/unifi-core.*`
 
 Restart things
 
-`service nginx restart`
-
-`service unifi start`
-
 `reboot now`
-
-When it comes time to renew
-
-`certbot renew`
