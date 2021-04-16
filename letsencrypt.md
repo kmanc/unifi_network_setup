@@ -1,4 +1,20 @@
-# Replacing the default cert [(this helped)](https://community.ui.com/questions/Installing-SSL-certs-on-unifi-os-Working-perfectly-2-0-24-unifi-os-easy-way/9c80139d-62b7-419c-896f-f016f2f3cf82)
+# Replacing the default cert [(this helped)](https://community.ui.com/questions/Installing-SSL-certs-on-unifi-os-Working-perfectly-2-0-24-unifi-os-easy-way/9c80139d-62b7-419c-896f-f016f2f3cf82) 
+Important bit from the link 
+```
+FYI the configuration for 2.0.x appears to be at:
+
+/usr/share/unifi-core/app/config/config.yaml
+
+In that it references the the crt and key stored at:
+
+/data/unifi-core/config/unifi-core.crt
+
+/data/unifi-core/config/unifi-core.key
+
+You can either backup then replace those files, or modify the config file to point somewhere else.
+
+I went with the former and it works fine for me :)
+```
 
 #### This part is gonna be shorter with less explanation until / unless it get's to a spot that I want to dedicate more time to. Right now there isn't a great solution for renewals
 
