@@ -31,6 +31,10 @@ Run it on your domain
 
 
 Follow instructions and add the DNS TXT record in your registrar's UI
+
+* You can check with `dig _acme-challenge.<your_domain> txt`
+
+
 Wait a sec, then confirm the certbot CLI as per request
 
 
