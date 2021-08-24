@@ -87,24 +87,6 @@ set openvpn-option "--user nobody"
 set openvpn-option "--group nogroup"
 set openvpn-option "--port 1194"
 top
-# Don't change the name of this rule or you might get unexpected behavior
-edit firewall name WAN_LOCAL
-# The rule number doesn't have to be 1, I just chose 1 because it was easy
-set rule 1 action accept
-set rule 1 description "OpenVPN on IPv4 allowed from internet"
-set rule 1 destination port 1194
-# You can log things if you want, but I didn't
-set rule 1 log disable
-set rule 1 protocol udp
-top
-# Same notes apply here that applied to the WAN_LOCAL rule above
-edit firewall ipv6-name WANv6_LOCAL
-set rule 1 action accept
-set rule 1 description "OpenVPN on IPv6 allowed from internet"
-set rule 1 destination port 1194
-set rule 1 log disable
-set rule 1 protocol udp
-top
 # This next part only matters if you want your client to be able to reach the open internet once it is connected; if you don't, skip to the commit line a few below
 edit service nat rule 5001
 set description "Masquerade for OpenVPN to WAN"
@@ -112,6 +94,7 @@ set outbound-interface eth0
 set type masquerade
 top
 commit
+save
 exit
 # This next line doesn't have to be run, but when you're logged in to the USG it will show you what (if any) clients are connected
 show openvpn status server
@@ -126,6 +109,9 @@ Like I mentioned in the last command in step 2, you've started to lay the ground
 mv <path>/config.gateway.json /srv/unifi/data/sites/default
 chown unifi:unifi /srv/unifi/data/sites/default/config.gateway.json
 ```
+
+### Step 4 - making firewall rules to allow connections from outside
+* make Internet Local and Internetv6 Local rules to accept new/established/related UDP
 
 And that's it! Provision your USG just to verify, but now you should be able to OpenVPN back to home from your client. For me that means running `sudo openvpn client.ovpn` and then typing in the password to my client's key file, but for you that might meaning a GUI or some other method. If you're interested in further reading, or which places I pieced together to get my stuff up and running, here are some reference materials.
 
