@@ -1,6 +1,6 @@
 This repo is about my home network, its setup, and how you can recreate it or a similar one. I learned a lot from trial and error in the processing of building it so I hope to teach you some of what I know!
 
-I tried to break things down in a way that makes sense, so the depending on what you're trying to do, please see the relevant markdown file.
+I tried to lay things out in an order that makes sense if you're starting from scratch, but if you are only interested in a specific aspect just skip ahead.
 
 # My network in a picture
 
