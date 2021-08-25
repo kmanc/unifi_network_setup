@@ -1,82 +1,76 @@
-# Replacing the default cert [(this helped)](https://community.ui.com/questions/Installing-SSL-certs-on-unifi-os-Working-perfectly-2-0-24-unifi-os-easy-way/9c80139d-62b7-419c-896f-f016f2f3cf82) 
-Important bit from the link 
+# Replace the Unifi Certificate
+
+
+If you're following along from the basic setup, you can now type in the name you entered in the USG `/etc/hosts` file and see your controller pop up, but your browser might not be super happy about it. We'll replace the certificate to one signed by Let's Encrypt.
+
+
+## Installing certbot
+
+
+First you'll need to generate a cert, which you can do with the help of certbot. I would suggest doing what follows on a non-Unifi device; making the cert on the device you use it on feels dirty.
+
+
+I did this on a Macbook, so to install I ran 
+
+
 ```
-FYI the configuration for 2.0.x appears to be at:
-
-/usr/share/unifi-core/app/config/config.yaml
-
-In that it references the the crt and key stored at:
-
-/data/unifi-core/config/unifi-core.crt
-
-/data/unifi-core/config/unifi-core.key
-
-You can either backup then replace those files, or modify the config file to point somewhere else.
-
-I went with the former and it works fine for me :)
+brew install certbot
 ```
 
-#### This part is gonna be shorter with less explanation until / unless it get's to a spot that I want to dedicate more time to. Right now there isn't a great solution for renewals
 
-Install letsencrypt on the cloud key or machine of choice (I chose my macbook)
-
-`apt install letsencrypt`
-
-`brew install certbot`
+## Using certbot to generate a cert
 
 
-Run it on your domain
+Now you'll have to generate a certificate. I should mention that in order to do this you'll need to own a domain; I have one that I use for my OpenVPN setup (covered later), so I used that. To generate the cert, you'll need to run some commands and do some things through your registrar (for me, Namecheap).
+
 
 `certbot certonly --manual --preferred-challenges dns -d "*.<your_domain>"`
 
 
-Follow instructions and add the DNS TXT record in your registrar's UI
-
-* You can check with `dig _acme-challenge.<your_domain> txt`
+Then I had to create the TXT record that certbot asked me to on my registrar to prove that I own the domain. When I had done that, I waited until the following command returned the TXT record.
 
 
-Wait a sec, then confirm the certbot CLI as per request
+`dig _acme-challenge.<your_domain> txt`
 
 
-Go to where the certs went or SCP them to your CloudKey
-
-`/etc/letsencrypt/live/<your_domain>`
-
-`sudo scp /etc/letsencrypt/archive/<your_domain>/privkey.pem user@X.X.X.X:/`
-
-`sudo scp /etc/letsencrypt/archive/<your_domain>/fullchain.pem user@X.X.X.X:/`
-
-`sudo scp /etc/letsencrypt/archive/<your_domain>/chain.pem user@X.X.X.X:/`
-
-`sudo scp /etc/letsencrypt/archive/<your_domain>cert.pem user@X.X.X.X:/`
+Once that is done you can click enter in the certbot command line and your cert will be created.
 
 
-Move them to where they need to be
-
-`mv *.pem /data/unifi-core/config/cert_components`
+## Move the files to the controller
 
 
-Package a pkcs 12 bundle (you'll have to set a password here)
-
-`openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out <your_domain>.p12 -name unifi`
+Now you'll have to move the stuff that certbot created to the controller. I used SCP, so my commands looked like this
 
 
-Import to the cloud key keystore
-
-`keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircontrolenterprise -destkeystore /usr/lib/unifi/data/keystore -srckeystore <your_domain>.p12 -srcstoretype PKCS12 -srcstorepass <your_certificate_password> -alias unifi`
-
-
-Copy to the filenames unifi-core wants
-
-`cp fullchain.pem /data/unifi-core/config/unifi-core.crt`
-
-`cp privkey.pem /data/unifi-core/config/unifi-core.key`
+```
+sudo scp /etc/letsencrypt/archive/<your_domain>/privkey.pem user@X.X.X.X:/tmp/
+sudo scp /etc/letsencrypt/archive/<your_domain>/fullchain.pem user@X.X.X.X:/tmp/
+sudo scp /etc/letsencrypt/archive/<your_domain>/chain.pem user@X.X.X.X:/tmp/
+sudo scp /etc/letsencrypt/archive/<your_domain>/cert.pem user@X.X.X.X:/tmp/
+```
 
 
-Fix permissions
+## Package it all together
 
-`chmod 640 /data/unifi-core/config/unifi-core.*`
 
-Restart things
+You need to change the format of the cert, so you need to run some commands on the controller. SSH into the controller and then run the following.
 
-`reboot now`
+
+```
+mkdir /data/unifi-core/config/cert_components
+cd /data/unifi-core/config/cert_components
+mv /tmp/*.pem .
+openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out <your_domain>.p12 -name unifi
+```
+
+
+You'll be asked to create a password here. You'll need that password in the next set of commands
+
+
+```
+keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircontrolenterprise -destkeystore /usr/lib/unifi/data/keystore -srckeystore <your_domain>.p12 -srcstoretype PKCS12 -srcstorepass <the_password_you_created> -alias unifi
+cp fullchain.pem /data/unifi-core/config/unifi-core.crt
+cp privkey.pem /data/unifi-core/config/unifi-core.key
+chmod 640 /data/unifi-core/config/unifi-core.*
+reboot now
+```
