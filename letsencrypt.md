@@ -74,3 +74,9 @@ cp privkey.pem /data/unifi-core/config/unifi-core.key
 chmod 640 /data/unifi-core/config/unifi-core.*
 reboot now
 ```
+
+
+Now when you open up your controller, you shouldn't get a warning from your browser, and you should see the lock in the top middle or left hand side of the window (for me it's kinda left of middle).
+
+
+![](images/login_page.png)
