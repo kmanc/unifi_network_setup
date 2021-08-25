@@ -41,3 +41,12 @@ Some networks might not have the same needs as others. For instance, I wouldn't 
 
 
 ![](images/bandwidth_profiles.png)
+
+
+# VLANs without Wifi
+
+
+You may be wondering how to put a device on a VLAN that doesn't have wifi. When you create a network, a "Switch Port" is created for it automatically. While on the controller UI, you can click "Unifi Devices" on the left, followed by any switch you have added to the network. Then you can click on "Ports" near the top right, followed by any of the switch's ports, and assign it a port profile. Below is how I added my ESXi server to VLAN4 without a wifi network for VLAN4.
+
+
+![](images/switch_port_profile.png)
