@@ -5,7 +5,7 @@ I tried to lay things out in an order that makes sense if you're starting from s
 # My network in a picture
 
 
-![](images/network_diagram.png)
+![](images/current_network_diagram.png)
 
 
 # My network in words
@@ -28,13 +28,26 @@ I tried to lay things out in an order that makes sense if you're starting from s
 - VLAN4
   - My ESXi server with a few VMs
 - OpenVPN VLAN
-  - Not pictured, I can VPN from my personal laptop
+  - I can VPN from my personal laptop from anywhere on the internet to a separate VLAN
 
 In general, VLANs cannot talk to each other, except for those purple arrows:
 - VLAN1 can talk to VLAN4, which can communicate back when VLAN1 starts the conversation
 - VLAN1 can talk to the printer, which can communicate back when VLAN1 starts the conversation
 - The Raspberry Pi on VLAN3 can talk to the Cloud Key, which can communicate back when the Pi starts the conversation
 - OpenVPN VLAN can talk to VLAN4, which can communicate back when the OpenVPN VLAN starts the conversation
+
+
+# Proposed future state in a picture
+
+
+![](images/proposed_network_diagram.png)
+
+
+# How it is different
+
+
+- VLAN1 would be for network devices **only**
+- I would poke a few more holes in the firewall to allow my personal desktop and personal laptop to manage the networking devices
 
 
 ## [General Unifi setup](https://github.com/kmanc/unifi_network_setup/blob/master/unifi.md)
