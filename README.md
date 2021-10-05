@@ -66,7 +66,9 @@ In general, VLANs cannot talk to each other, except for those purple arrows:
 - Define what can talk to what on the network
 
 
-## [OpenVPN to a Unifi Security Gateway](https://github.com/kmanc/unifi_network_setup/blob/master/openvpn.md)
+## [Wireguard to a Unifi Security Gateway](https://github.com/kmanc/unifi_network_setup/blob/master/wireguard.md)
 - Remote in to your home network from anywhere in the world!
 
 
+## [DEPRECATED: OpenVPN to a Unifi Security Gateway](https://github.com/kmanc/unifi_network_setup/blob/master/openvpn_deprecated.md)
+- I don't use OpenVPN anymore as I had trouble with it on my USG. I've opted to replace OpenVPN with Wireguard
