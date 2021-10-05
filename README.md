@@ -27,14 +27,14 @@ I tried to lay things out in an order that makes sense if you're starting from s
   - Basically any other IOT device
 - VLAN4
   - My ESXi server with a few VMs
-- OpenVPN VLAN
+- Wireguard VLAN
   - I can VPN from my personal laptop from anywhere on the internet to a separate VLAN
 
 In general, VLANs cannot talk to each other, except for those purple arrows:
 - VLAN1 can talk to VLAN4, which can communicate back when VLAN1 starts the conversation
 - VLAN1 can talk to the printer, which can communicate back when VLAN1 starts the conversation
 - The Raspberry Pi on VLAN3 can talk to the Cloud Key, which can communicate back when the Pi starts the conversation
-- OpenVPN VLAN can talk to VLAN4, which can communicate back when the OpenVPN VLAN starts the conversation
+- Wireguard VLAN can talk to VLAN4, which can communicate back when the Wireguard VLAN starts the conversation
 
 
 # Proposed future state in a picture
