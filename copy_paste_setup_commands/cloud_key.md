@@ -14,7 +14,7 @@ sudo usermod -a -G sudo DESIRED_USERNAME
 
 
 ```
-sudo mkdir /srv/unifi/data/sites/default
+sudo mkdir -p /srv/unifi/data/sites/default
 sudo mv /tmp/config.gateway.json /srv/unifi/data/sites/default
 sudo chown unifi:unifi /srv/unifi/data/sites/default/config.gateway.json
 ```
