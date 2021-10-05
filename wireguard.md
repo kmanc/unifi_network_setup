@@ -17,6 +17,29 @@ dpkg -i wg.deb
 ```
 
 
+## Upgrading
+
+
+Because we're dealing with a user-installed package, we need to make sure we stay on top of updating on our own now; Unifi won't do that for us. I haven't tested this yet as there haven't been new releases, but the documentation says you should run the following commands
+
+```
+curl -OL https://github.com/WireGuard/wireguard-vyatta-ubnt/releases/download/<new_release>
+
+configure
+set interfaces wireguard wg0 route-allowed-ips false
+commit
+delete interfaces wireguard
+commit
+sudo rmmod wireguard
+sudo dpkg -i <new_release>.deb
+sudo modprobe wireguard
+load
+commit
+save
+exit
+```
+
+
 ## Server configuration
 
 
