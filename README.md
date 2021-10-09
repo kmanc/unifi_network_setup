@@ -70,5 +70,5 @@ In general, VLANs cannot talk to each other, except for those purple arrows:
 - Remote in to your home network from anywhere in the world!
 
 
-## [DEPRECATED: OpenVPN to a Unifi Security Gateway](https://github.com/kmanc/unifi_network_setup/blob/master/openvpn_deprecated.md)
+## [[DEPRECATED] - OpenVPN to a Unifi Security Gateway](https://github.com/kmanc/unifi_network_setup/blob/master/openvpn_deprecated.md)
 - I don't use OpenVPN anymore as I had trouble with it on my USG. I've opted to replace OpenVPN with Wireguard
