@@ -5,7 +5,7 @@ I tried to lay things out in an order that makes sense if you're starting from s
 # My network in a picture
 
 
-![](images/network_diagram.svg)
+![](images/network_diagram.png)
 
 
 # My network in words
@@ -38,10 +38,10 @@ In general, VLANs cannot talk to each other, except for those purple arrows:
 - Wireguard VLAN can talk to VLAN4, which can communicate back when the Wireguard VLAN starts the conversation
 
 
-# Proposed future state in a picture (currently outdated, will update)
+# Proposed future state in a picture
 
 
-![](images/proposed_network_diagram.png)
+![](images/future_network_diagram.png)
 
 
 # How it is different
