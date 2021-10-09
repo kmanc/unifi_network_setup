@@ -5,7 +5,7 @@ I tried to lay things out in an order that makes sense if you're starting from s
 # My network in a picture
 
 
-![](images/current_network_diagram.png)
+![](images/network_diagram.svg)
 
 
 # My network in words
@@ -16,6 +16,7 @@ I tried to lay things out in an order that makes sense if you're starting from s
   - Unifi Switch
   - Unifi Cloud Key
   - My SO and my personal devices
+  - Chromecast
 - VLAN2
   - Guests who join via [my Raspberry Pi QR Code password generator / sharer](https://github.com/kmanc/wifi_qr)
 - VLAN3
@@ -37,7 +38,7 @@ In general, VLANs cannot talk to each other, except for those purple arrows:
 - Wireguard VLAN can talk to VLAN4, which can communicate back when the Wireguard VLAN starts the conversation
 
 
-# Proposed future state in a picture
+# Proposed future state in a picture (currently outdated, will update)
 
 
 ![](images/proposed_network_diagram.png)
