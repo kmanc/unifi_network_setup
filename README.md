@@ -5,7 +5,7 @@ I tried to lay things out in an order that makes sense if you're starting from s
 # My network in a picture
 
 
-![](images/network_diagram.svg)
+![Could not load Network Diagram](https://raw.githubusercontent.com/kmanc/unifi_network_setup/master/images/network_diagram.svg)
 
 
 # My network in words
@@ -41,7 +41,7 @@ In general, VLANs cannot talk to each other, except for those purple arrows:
 # Proposed future state in a picture
 
 
-![](images/future_network_diagram.svg)
+![Could not load future-state Network Diagram](https://raw.githubusercontent.com/kmanc/unifi_network_setup/master/images/future_network_diagram.svg)
 
 
 # How it is different
