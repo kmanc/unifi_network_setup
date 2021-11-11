@@ -81,8 +81,8 @@ That saves your current configuration to a file on the USG, but you'll need to m
 
 
 ```
-mv /tmp/config.gateway.json /srv/unifi/data/sites/default
-chown unifi:unifi /srv/unifi/data/sites/default/config.gateway.json
+mv /tmp/config.gateway.json /usr/lib/unifi/data/sites/default
+chown unifi:unifi /usr/lib/unifi/data/sites/default/config.gateway.json
 ```
 
 
