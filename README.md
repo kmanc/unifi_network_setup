@@ -27,13 +27,13 @@ I tried to lay things out in an order that makes sense if you're starting from s
 - "Name" your home with a domain so you don't have to remember an IP address
 
 
-# My network in a picture
+## My network
 
 
 ![](images/network_diagram.svg)
 
 
-# My network in words
+### My network explained
 
 
 - VLAN1
@@ -63,14 +63,15 @@ In general, VLANs cannot talk to each other, except for those purple arrows:
 - Wireguard VLAN can talk to VLAN4, which can communicate back when the Wireguard VLAN starts the conversation
 
 
-# Proposed future state in a picture
+## Proposed future state
 
 
 ![](images/future_network_diagram.svg)
 
 
-# How it is different
+### How it is different
 
 
 - VLAN1 would be for network devices **only**
 - I would poke a few more holes in the firewall to allow my personal desktop and personal laptop to manage the networking devices
+- This separation is, in my opinion, a good thing as it means that devices that don't need to be able to "talk" to the network infrastructure (IE, my SO's devices, our phones, etc) cannot do so
