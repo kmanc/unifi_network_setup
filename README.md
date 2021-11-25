@@ -27,6 +27,10 @@ I tried to lay things out in an order that makes sense if you're starting from s
 - "Name" your home with a domain so you don't have to remember an IP address
 
 
+### [config.gateway.json](https://github.com/kmanc/unifi_network_setup/blob/master/config.gateway.json.md)
+- Persist your changes across reboots and provisions
+
+
 ## My network
 
 
