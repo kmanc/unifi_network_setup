@@ -80,3 +80,7 @@ Now when you open up your controller, you shouldn't get a warning from your brow
 
 
 ![](images/login_page.png)
+
+
+---
+[Next up, VLANs](https://github.com/kmanc/unifi_network_setup/blob/master/vlans.md)

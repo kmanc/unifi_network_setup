@@ -109,3 +109,7 @@ Now this part tripped me up a bit. Put briefly:
 - Interface --> Address defines what IP address the client should say it's coming from. This **must** match the allowed-ips you set up in the server config; in my case 172.16.0.2/32
 - Peer --> AllowedIPs defines which destination IP addresses should be sent over the tunnel. If you want all traffic to traverse the tunnel, you can set this to 0.0.0.0/0. I set it to the specific ranges in my network that I expected to reach over the VPN
 - Peer --> Endpoint defines where to connect to the VPN. For me, this was my DDNS name...speaking of which
+
+
+---
+[Lastly, Dynamic DNS](https://github.com/kmanc/unifi_network_setup/blob/master/dyanmicdns.md)

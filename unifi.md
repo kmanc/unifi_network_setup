@@ -63,3 +63,7 @@ With the ability to SSH into my USG, I added an entry in the `/etc/hosts` file f
 
 
 That's all! I was pretty happy with the basic setup so I moved on to some more advanced setup.
+
+
+---
+[Next up, Let's Encrypt](https://github.com/kmanc/unifi_network_setup/blob/master/letsencrypt.md)

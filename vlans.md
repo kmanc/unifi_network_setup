@@ -50,3 +50,7 @@ You may be wondering how to put a device on a VLAN that doesn't have wifi. When 
 
 
 ![](images/switch_port_profile.png)
+
+
+---
+[Next up, firewall rules](https://github.com/kmanc/unifi_network_setup/blob/master/firewall.md)

@@ -66,3 +66,7 @@ I replicated the rule for "Internet v6 Local" just in case I happened to VPN in 
 
 ![](images/firewall_internetv6_rules.png)
 
+
+---
+[Next up, wireguard](https://github.com/kmanc/unifi_network_setup/blob/master/wireguard.md)
+
