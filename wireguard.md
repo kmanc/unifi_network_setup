@@ -1,4 +1,4 @@
-# Wireguard to your home
+# VPNing to your home
 
 
 Setting up Wireguard on my USG was much easier than I expected, and allows me to access my network no matter where I am.
@@ -67,28 +67,6 @@ set interfaces wireguard wg0 peer <client1.public_contents> allowed-ips 172.16.0
 This makes a Wireguard interface on the USG that can server IP addresses in the 172.16.0.1/24 range, instructs the USG to listen on port 51820, and then allows client1 to connect as long as it says it is coming from 172.16.0.2 (more on that in a sec).
 
 
-## Making the changes stick
-
-
-So far so good, your USG is now an Wireguard server that your client can connect to! The only problem is that the next time your USG provisions, it will clear all the work you did. Enter "config.gateway.json", which is basically a way to manage all of the Unifi options that the UI doesn't support. While on the USG, run the following command.
-
-```
-mca-ctrl -t dump-cfg > /tmp/config.gateway.json
-```
-
-
-That saves your current configuration to a file on the USG, but you'll need to move it to the controller to actually have it apply. I used SCP to move it to the controller's "/tmp" directory. Once it is on the controller, SSH into that and run the following.
-
-
-```
-mv /tmp/config.gateway.json /usr/lib/unifi/data/sites/default
-chown unifi:unifi /usr/lib/unifi/data/sites/default/config.gateway.json
-```
-
-
-If the directory above doesn't exist you'll have to create it, but once you've done that you're all set! Even provisions won't stop your Wireguard abilities now.
-
-
 ## Client configuration
 
 
@@ -112,4 +90,4 @@ Now this part tripped me up a bit. Put briefly:
 
 
 ---
-[Lastly, Dynamic DNS](https://github.com/kmanc/unifi_network_setup/blob/master/dyanmicdns.md)
+[Next up, Dynamic DNS](https://github.com/kmanc/unifi_network_setup/blob/master/dyanmicdns.md)

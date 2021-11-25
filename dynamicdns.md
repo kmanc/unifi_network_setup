@@ -8,3 +8,7 @@ First set up DDNS with your registrar for your domain. Then, from the controller
 
 
 ![](images/ddns.png)
+
+
+---
+[Lastly, config.gateway.json](https://github.com/kmanc/unifi_network_setup/blob/master/config.gateway.json.md)

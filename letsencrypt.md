@@ -1,4 +1,4 @@
-# Replace the Unifi Certificate
+# Replacing the Unifi Certificate
 
 
 If you're following along from the basic setup, you can now type in the name you entered in the USG `/etc/hosts` file and see your controller pop up, but your browser might not be super happy about it. We'll replace the certificate to one signed by Let's Encrypt.

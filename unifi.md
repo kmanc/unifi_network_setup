@@ -1,7 +1,7 @@
 # General Unifi setup
 
 
-When Unifi works on the first try I think it's great...sometimes and it doesn't and it...isn't great. When I installed my network from factory defaults, my USG could reach the internet, but my controller could not.
+When Unifi works on the first try I think it's great...sometimes and it doesn't and it uh...isn't great. When I installed my network from factory defaults, my USG could reach the internet, but my controller could not.
 
 
 ## Fixing a common setup bug

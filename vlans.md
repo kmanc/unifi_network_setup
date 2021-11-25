@@ -1,4 +1,4 @@
-# Breaking up the network
+# Segmenting the network
 
 
 For management reasons, breaking the network into logical chunks can make a lot of sense. I chose to set up a few separate VLANs based on what would be in them.
