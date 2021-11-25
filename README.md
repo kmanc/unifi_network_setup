@@ -30,7 +30,7 @@ I tried to lay things out in an order that makes sense if you're starting from s
 ## My network
 
 
-![](images/network_diagram.svg)
+![Could not load Network Diagram](images/network_diagram.svg)
 
 
 ### My network explained
@@ -66,7 +66,7 @@ In general, VLANs cannot talk to each other, except for those purple arrows:
 ## Proposed future state
 
 
-![](images/future_network_diagram.svg)
+![Could not load future-state Network Diagram](/images/future_network_diagram.svg)
 
 
 ### How it is different
