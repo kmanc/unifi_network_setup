@@ -23,7 +23,7 @@ I tried to lay things out in an order that makes sense if you're starting from s
 - Remote in to your home network from anywhere in the world!
 
 
-### [Dyanmic DNS](https://github.com/kmanc/unifi_network_setup/blob/master/dynamicdns.md)
+### [Dynamic DNS](https://github.com/kmanc/unifi_network_setup/blob/master/dynamicdns.md)
 - "Name" your home with a domain so you don't have to remember an IP address
 
 
