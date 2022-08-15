@@ -43,10 +43,10 @@ Now you'll have to move the stuff that certbot created to the controller. I used
 
 
 ```
-sudo scp /etc/letsencrypt/archive/<your_domain>/privkey.pem user@X.X.X.X:/tmp/
-sudo scp /etc/letsencrypt/archive/<your_domain>/fullchain.pem user@X.X.X.X:/tmp/
-sudo scp /etc/letsencrypt/archive/<your_domain>/chain.pem user@X.X.X.X:/tmp/
-sudo scp /etc/letsencrypt/archive/<your_domain>/cert.pem user@X.X.X.X:/tmp/
+sudo scp /etc/letsencrypt/live/<your_domain>/privkey.pem user@X.X.X.X:/tmp/
+sudo scp /etc/letsencrypt/live/<your_domain>/fullchain.pem user@X.X.X.X:/tmp/
+sudo scp /etc/letsencrypt/live/<your_domain>/chain.pem user@X.X.X.X:/tmp/
+sudo scp /etc/letsencrypt/live/<your_domain>/cert.pem user@X.X.X.X:/tmp/
 ```
 
 
