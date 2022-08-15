@@ -57,8 +57,8 @@ You need to change the format of the cert, so you need to run some commands on t
 
 
 ```
-mkdir /data/unifi-core/config/cert_components
-cd /data/unifi-core/config/cert_components
+mkdir /data/unifi-core/config/cert-components
+cd /data/unifi-core/config/cert-components
 mv /tmp/*.pem .
 openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out <your_domain>.p12 -name unifi
 ```
