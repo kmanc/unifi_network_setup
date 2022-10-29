@@ -11,4 +11,4 @@ First set up DDNS with your registrar for your domain. Then, from the controller
 
 
 ---
-[Lastly, config.gateway.json](https://github.com/kmanc/unifi_network_setup/blob/main/config.gateway.json.md)
+[Lastly, config.gateway.json](https://github.com/kmanc/unifi_network_setup/blob/main/docs/config.gateway.json.md)

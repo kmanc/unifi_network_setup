@@ -90,4 +90,4 @@ Now this part tripped me up a bit. Put briefly:
 
 
 ---
-[Next up, Dynamic DNS](https://github.com/kmanc/unifi_network_setup/blob/main/dynamicdns.md)
+[Next up, Dynamic DNS](https://github.com/kmanc/unifi_network_setup/blob/main/docs/dynamicdns.md)

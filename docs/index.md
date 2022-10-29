@@ -3,31 +3,31 @@ This repo is about my home network, its setup, and how you can recreate it or a 
 I tried to lay things out in an order that makes sense if you're starting from scratch, but if you are only interested in a specific aspect just skip ahead. Otherwise this is the order in which I set things up:
 
 
-### [General Unifi setup](https://github.com/kmanc/unifi_network_setup/blob/main/unifi.md)
+### [General Unifi setup](https://github.com/kmanc/unifi_network_setup/blob/main/docs/unifi.md)
 - What I did on the Cloud Key so I could manage the network the way I wanted to
 
 
-### [Let's Encrypt certificate on the controller](https://github.com/kmanc/unifi_network_setup/blob/main/letsencrypt.md)
+### [Let's Encrypt certificate on the controller](https://github.com/kmanc/unifi_network_setup/blob/main/docs/letsencrypt.md)
 - Add a certificate signed by Let's Encrypt to a Cloud Key controller so that you get the warm and fuzzy lock in your browser
 
 
-### [VLANs](https://github.com/kmanc/unifi_network_setup/blob/main/vlans.md)
+### [VLANs](https://github.com/kmanc/unifi_network_setup/blob/main/docs/vlans.md)
 - Break the network out into bite sized pieces that you can manage individually
 
 
-### [Firewall rules](https://github.com/kmanc/unifi_network_setup/blob/main/firewall.md)
+### [Firewall rules](https://github.com/kmanc/unifi_network_setup/blob/main/docs/firewall.md)
 - Define what can talk to what on the network
 
 
-### [Wireguard to a Unifi Security Gateway](https://github.com/kmanc/unifi_network_setup/blob/main/wireguard.md)
+### [Wireguard to a Unifi Security Gateway](https://github.com/kmanc/unifi_network_setup/blob/main/docs/wireguard.md)
 - Remote in to your home network from anywhere in the world!
 
 
-### [Dynamic DNS](https://github.com/kmanc/unifi_network_setup/blob/main/dynamicdns.md)
+### [Dynamic DNS](https://github.com/kmanc/unifi_network_setup/blob/main/docs/dynamicdns.md)
 - "Name" your home with a domain so you don't have to remember an IP address
 
 
-### [config.gateway.json](https://github.com/kmanc/unifi_network_setup/blob/main/config.gateway.json.md)
+### [config.gateway.json](https://github.com/kmanc/unifi_network_setup/blob/main/docs/config.gateway.json.md)
 - Persist your changes across reboots and provisions
 
 

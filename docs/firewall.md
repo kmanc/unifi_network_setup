@@ -28,7 +28,7 @@ Perhaps the simplest rule to create is the "block VLAN to VLAN rule". Part of th
 ## Exceptions to the VLAN to VLAN drop
 
 
-There are reasons that you might want to be able to break the drop rule; and that's where the firewall groups can really shine. If you remember from [the main README](https://github.com/kmanc/unifi_network_setup/blob/main/README.md), I had a few purple lines defining who could break rules in my network; let's create some.
+There are reasons that you might want to be able to break the drop rule; and that's where the firewall groups can really shine. If you remember from [the main README](https://github.com/kmanc/unifi_network_setup/blob/main/docs/README.md), I had a few purple lines defining who could break rules in my network; let's create some.
 
 
 In order to allow VLAN1 to talk to VLAN4, I created a rule that looks like the one below. Walking through it step-by-step, I created a rule for "Lan In" which basically means it's a rule for things inside my network (ie, not the internet). You can't see it in the picture, but I promise it's there. Then I defined the source of the traffic as the VLAN1 firewall group, the destination as the VLAN4 firewall group, and checked "Match State New", "Match State Established", and "Match State Related". This means that VLAN1 can begin a conversation with something on VLAN4 (the new packets), or continue any existing conversation with VLAN4 (the eastblished / related packets)
@@ -68,5 +68,5 @@ I replicated the rule for "Internet v6 Local" just in case I happened to VPN in 
 
 
 ---
-[Next up, wireguard](https://github.com/kmanc/unifi_network_setup/blob/main/wireguard.md)
+[Next up, wireguard](https://github.com/kmanc/unifi_network_setup/blob/main/docs/wireguard.md)
 
