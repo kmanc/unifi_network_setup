@@ -1,0 +1,15 @@
+theme: jekyll-theme-cayman
+markdown: kramdown
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - config.gateway.json.md
+  - dynamicdns.md
+  - firewall.md
+  - letsecnrypt.md
+  - unifi.md
+  - vlans.md
+  - wireguard.md
