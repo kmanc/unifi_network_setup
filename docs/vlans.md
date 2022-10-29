@@ -53,4 +53,4 @@ You may be wondering how to put a device on a VLAN that doesn't have wifi. When 
 
 
 ---
-[Next up, firewall rules](hhttps://kmanc.github.io/unifi_network_setupork_setup/firewall.html)
+[Next up, firewall rules](https://kmanc.github.io/unifi_network_setup/firewall.html)

@@ -83,4 +83,4 @@ Now when you open up your controller, you shouldn't get a warning from your brow
 
 
 ---
-[Next up, VLANs](https://kmanc.github.io/unifi_network_setupork_setup/vlans.html)
+[Next up, VLANs](https://kmanc.github.io/unifi_network_setup/vlans.html)

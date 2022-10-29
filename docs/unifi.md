@@ -66,4 +66,4 @@ That's all! I was pretty happy with the basic setup so I moved on to some more a
 
 
 ---
-[Next up, Let's Encrypt](https://kmanc.github.io/unifi_network_setupork_setup/letsencrypt.html)
+[Next up, Let's Encrypt](https://kmanc.github.io/unifi_network_setup/letsencrypt.html)

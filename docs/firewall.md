@@ -68,5 +68,5 @@ I replicated the rule for "Internet v6 Local" just in case I happened to VPN in 
 
 
 ---
-[Next up, wireguard](https://kmanc.github.io/unifi_network_setupork_setup/wireguard.html)
+[Next up, wireguard](https://kmanc.github.io/unifi_network_setup/wireguard.html)
 
