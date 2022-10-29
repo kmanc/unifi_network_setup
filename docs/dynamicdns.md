@@ -7,8 +7,8 @@ If you have a domain like I did for my peer endpoint, for bonus points you can s
 First set up DDNS with your registrar for your domain. Then, from the controller UI click "Settings", "Advanced Features", "Advanced Gateway Settings". Then select "Create a New Dynamic DNS". Fill out the form as seen in the image below. Normally this is straightforward, but for my registrar (Namecheap), things get funky. The "Username" field is actually my domain, which I find super confusing. Also with most registrars you leave the "Server" field blank, but with Namecheap you need to add that one. I don't know why, but hey it works so I guess I shouldn't complain.
 
 
-![](/docs/images/ddns.png)
+![](/images/ddns.png)
 
 
 ---
-[Lastly, config.gateway.json](https://github.com/kmanc/unifi_network_setup/blob/main/docs/config.gateway.json.md)
+[Lastly, config.gateway.json](https://kmanc.github.io/unifi_network_setupork_setup/config.gateway.json.html)

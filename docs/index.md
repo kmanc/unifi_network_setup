@@ -3,38 +3,38 @@ This repo is about my home network, its setup, and how you can recreate it or a 
 I tried to lay things out in an order that makes sense if you're starting from scratch, but if you are only interested in a specific aspect just skip ahead. Otherwise this is the order in which I set things up:
 
 
-### [General Unifi setup](https://github.com/kmanc/unifi_network_setup/blob/main/docs/unifi.md)
+### [General Unifi setup](https://kmanc.github.io/unifi_network_setupork_setup/unifi.html)
 - What I did on the Cloud Key so I could manage the network the way I wanted to
 
 
-### [Let's Encrypt certificate on the controller](https://github.com/kmanc/unifi_network_setup/blob/main/docs/letsencrypt.md)
+### [Let's Encrypt certificate on the controller](https://kmanc.github.io/unifi_network_setupork_setup/letsencrypt.html)
 - Add a certificate signed by Let's Encrypt to a Cloud Key controller so that you get the warm and fuzzy lock in your browser
 
 
-### [VLANs](https://github.com/kmanc/unifi_network_setup/blob/main/docs/vlans.md)
+### [VLANs](https://kmanc.github.io/unifi_network_setupork_setup/vlans.html)
 - Break the network out into bite sized pieces that you can manage individually
 
 
-### [Firewall rules](https://github.com/kmanc/unifi_network_setup/blob/main/docs/firewall.md)
+### [Firewall rules](https://kmanc.github.io/unifi_network_setupork_setup/firewall.html)
 - Define what can talk to what on the network
 
 
-### [Wireguard to a Unifi Security Gateway](https://github.com/kmanc/unifi_network_setup/blob/main/docs/wireguard.md)
+### [Wireguard to a Unifi Security Gateway](https://kmanc.github.io/unifi_network_setupork_setup/wireguard.html)
 - Remote in to your home network from anywhere in the world!
 
 
-### [Dynamic DNS](https://github.com/kmanc/unifi_network_setup/blob/main/docs/dynamicdns.md)
+### [Dynamic DNS](https://kmanc.github.io/unifi_network_setupork_setup/dynamicdns.html)
 - "Name" your home with a domain so you don't have to remember an IP address
 
 
-### [config.gateway.json](https://github.com/kmanc/unifi_network_setup/blob/main/docs/config.gateway.json.md)
+### [config.gateway.json](https://kmanc.github.io/unifi_network_setupork_setup/config.gateway.json.html)
 - Persist your changes across reboots and provisions
 
 
 ## My network
 
 
-![Could not load Network Diagram](/docs/images/network_diagram.svg)
+![Could not load Network Diagram](/images/network_diagram.svg)
 
 
 ### My network explained
@@ -70,7 +70,7 @@ In general, VLANs cannot talk to each other, except for those purple arrows:
 ## Proposed future state
 
 
-![Could not load future-state Network Diagram](/docs/images/future_network_diagram.svg)
+![Could not load future-state Network Diagram](/images/future_network_diagram.svg)
 
 
 ### How it is different

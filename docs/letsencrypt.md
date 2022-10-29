@@ -79,8 +79,8 @@ reboot now
 Now when you open up your controller, you shouldn't get a warning from your browser, and you should see the lock in the top middle or left hand side of the window (for me it's kinda left of middle).
 
 
-![](/docs/images/login_page.png)
+![](/images/login_page.png)
 
 
 ---
-[Next up, VLANs](https://github.com/kmanc/unifi_network_setup/blob/main/docs/vlans.md)
+[Next up, VLANs](https://kmanc.github.io/unifi_network_setupork_setup/vlans.html)
