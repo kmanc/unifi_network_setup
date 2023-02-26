@@ -1,0 +1,102 @@
+# ESXi lab Setup
+
+
+Because I wanted a lab to build tools, test my skills, and learn from both the offensive and defensive sides of technology, I set up a free VMWare ESXi host to house all of my VMs.
+
+
+## ESXi installation
+
+
+Sadly I didn't take any screenshots of the installation, but it was pretty straightforward. I downloaded the ISO on to a flash drive, and booted my host machine up with the flash drive plugged in. A few options and clicks later, I had my lab host!
+
+
+## Setting up ESXi
+
+
+I wanted my VMs to live on two different VLANs so I could isolate the ones I expected to use for building / testing from the ones I expected to make the "victims" of my security testing. I started by ensuring that both NICs for my host were connected to my Unifi switch, and the port profiles were set to the two VLANs I intended to use for the lab.
+
+
+After that, I had to play around with some ESXi options to get the guest VMs the way I wanted them. I started bu adding a virtual switch that was connected to VMNIC1 (my second physical NIC, as the first was being used by the "normal" ESXi management and VM network).
+
+
+Then I created a new port group for my victim VMs and assigned that to the newly created virtual switch.
+
+
+Last (and maybe not necessarily - the jury is still out) I created a second VMKernel NIC and another new port group that I called the "Alt Management Network" set to the new virtual switch. This made the second virtual switch look pretty much exactly the same as the original one.
+
+
+
+## Configuring the virtual machines (VLAN1)
+
+
+On my "normal" ESXi network, I wanted a few VMs: Kali Linux for offensive security, Ubuntu for general development, and a Windows 10 machine with no security applied (which would serve as my "way in" to the other network). 
+
+### Ubuntu
+
+
+I installed Ubuntu and made quick work of the setup, installing:
+
+- vscode
+- pycharm
+- git
+- curl
+- rust
+- build-essential
+- mingw-w64
+- samba
+
+I cloned a few repos of mine to the machine, and set up a samba share so I could easily move tools around.
+
+### Kali
+
+After installing Kali I cloned the following repos that I had used in the past and knew I would want again:
+
+- evil-winrm
+- BloodHound
+- linux-smart-enumeration
+- mimikatz
+- RsaCtfTool
+
+Then I installed a few packages that I also wanted:
+
+- feroxbuster
+- joplin
+
+Last, a few usablility tasks:
+
+- set up a VPN connection to connect to HackTheBox (one of the things I use for practice)
+- [added the BurpSuite cert to Firefox](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox)
+- added Foxyproxy to Firefox, and made two SOCK5 proxies - one for BurpSuite and one for SSH tunneling
+- changed the terminal transparenct to 0 for documentating screenshots
+- set the VM to connect to the Ubuntu VM's samba share on boot
+
+
+### Windows 10
+
+
+When setting up the Windows machine, I tried as much as possible not to use the built-in online account things that Microsoft tries to get you to. Nothing wrong with them, but they aren't my thing.
+
+
+The hardest part was turning off all the security features, with the most annoying being [disabling real-time protection for good, which I eventually did via a Registry key](https://www.tenforums.com/tutorials/3569-turn-off-real-time-protection-microsoft-defender-antivirus.html#option6).
+
+
+I also installed Visual Studio, an offline version of Miscrosoft Office I bought for ~$25, and made a shortcut to the Ubuntu machine's samba share.
+
+
+## Configuring the virtual machines (VLAN2)
+
+
+Now that it was configure the victim / vulnerable VMs, I took the easy way out on the first machine and just added a second network adapter to the Windows 10 VM and put it on the port group I had created for the second virtual switch.
+
+
+Then I created 3 Windows Server VMs:
+
+- 2022 to act as a Domain Controller
+- 2022 to be a server on the domain
+- 2019 to be another server on the domain
+
+
+After configuring a domain and adding the two servers to it, I created two more Windows 10 machines and added them to the domain.
+
+
+Last, I created five domain user accounts. Most of them had pretty good passwords, but one has a very easily-cracked password. These accounts and machines on my domain serve as a great place for me to learn about the security of computers in a domain.
