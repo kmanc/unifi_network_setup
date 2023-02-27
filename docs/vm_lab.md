@@ -22,14 +22,12 @@ After that, I had to play around with some ESXi options to get the guest VMs the
 Then I created a new port group for my victim VMs and assigned that to the newly created virtual switch.
 
 
-Last (and maybe not necessarily - the jury is still out) I created a second VMKernel NIC and another new port group that I called the "Alt Management Network" set to the new virtual switch. This made the second virtual switch look pretty much exactly the same as the original one.
-
-
 
 ## Configuring the virtual machines (VLAN1)
 
 
 On my "normal" ESXi network, I wanted a few VMs: Kali Linux for offensive security, Ubuntu for general development, and a Windows 10 machine with no security applied (which would serve as my "way in" to the other network). 
+
 
 ### Ubuntu
 
