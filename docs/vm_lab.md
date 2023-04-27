@@ -22,6 +22,10 @@ After that, I had to play around with some ESXi options to get the guest VMs the
 Then I created a new port group for my victim VMs and assigned that to the newly created virtual switch.
 
 
+## TLS
+
+SSH into the ESXi host and navigate to /etc/vmware/ssl. Then replace rui.key with the new privkey.pem from certbot, and rui.crt with the new fullchain.pem
+
 
 ## Configuring the virtual machines (VLAN1)
 
