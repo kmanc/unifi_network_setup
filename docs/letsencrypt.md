@@ -72,7 +72,7 @@ keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircont
 cp fullchain.pem /data/unifi-core/config/unifi-core.crt
 cp privkey.pem /data/unifi-core/config/unifi-core.key
 chmod 640 /data/unifi-core/config/unifi-core.*
-reboot now
+/sbin/ubnt-systool reboot
 ```
 
 
