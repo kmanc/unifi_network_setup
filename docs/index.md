@@ -53,7 +53,7 @@ I tried to lay things out in an order that makes sense if you're starting from s
   - My SO and my personal devices
   - Chromecast
 - VLAN2
-  - Guests who join via [my Raspberry Pi QR Code password generator / sharer](https://kmanc.github.io/wifi_qr/)
+  - Guests who join via [my Raspberry Pi QR Code password generator / sharer](https://kmanc.github.io/be_my_guest/)
 - VLAN3
   - Printer
   - Google Home
