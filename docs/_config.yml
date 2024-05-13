@@ -6,10 +6,8 @@ relative_links:
   enabled: true
   collections: true
 include:
-  - config.gateway.json.md
   - dynamicdns.md
-  - firewall.md
+  - homeassistant.md
   - letsecnrypt.md
+  - proxmox.md
   - unifi.md
-  - vlans.md
-  - wireguard.md
