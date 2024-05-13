@@ -1,10 +1,13 @@
-# General Unifi setup
+# Unifi
 
 
-> **Warning:** There was a time where sometimes Unifi devices had a nasty bug from fresh install. If it comes back, [see this to fix it](https://community.ui.com/questions/USG-not-advertising-default-gateway/08ac3059-d4b0-4860-889c-d69c1bd3e7e4)
+## Installation
 
 
-First thing's first, the cloud key needs a name
+> **Warning:** There was a time where Unifi devices had a nasty bug from fresh install. If it comes back, [see this to fix it](https://community.ui.com/questions/USG-not-advertising-default-gateway/08ac3059-d4b0-4860-889c-d69c1bd3e7e4)
+
+
+First thing's first, the Cloud Key needs a name
 
 
 ![](images/unifi_ui/00_name_cloud_key.png)
@@ -136,7 +139,7 @@ After that it's just a matter of clicking through client setup options and copyi
 Setting up DDNS on the Unifi side is <easy??>
 
 
-[](images/unifi_ui/16_WIP_DDNS.png)
+[](images/unifi_ui/16_WIP.png)
 
 
 ---
