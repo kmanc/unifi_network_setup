@@ -53,7 +53,7 @@ while IFS= read -r line; do
     (( txt_record_line-- ))
 
 # This line is kinda magic. It sets a sleep timer after which echo simulates the user pressing the "Enter" key. That key press is piped to certbot so it can continue confirming the TXT record is created
-done < <((sleep $SLEEP_TIME; echo) | certbot certonly --manual --preferred-challenges dns -d "${SUBDOMAIN}.${DOMAIN}.${TLD}" --agree-tos --email "${EMAIL}" 2>&1)
+done < <((sleep $SLEEP_TIME; echo) | certbot certonly --force-renewal --manual --preferred-challenges dns -d "${SUBDOMAIN}.${DOMAIN}.${TLD}" --agree-tos --email "${EMAIL}" 2>&1)
 
 # Delete the TXT record because it won't be needed again
 resp=$(curl --request DELETE \

@@ -3,12 +3,13 @@ This repo is about my home network, its setup, and how you can recreate it or a 
 I tried to lay things out in an order that makes sense if you're starting from scratch, but if you are only interested in a specific aspect just skip ahead. Otherwise this is the order in which I set things up:
 
 
-### [General Unifi setup](https://kmanc.github.io/unifi_network_setup/unifi.html)
+### [Unifi](https://kmanc.github.io/unifi_network_setup/unifi.html)
 - What I did on the Cloud Key so I could manage the network the way I wanted to. This covers:
   - Creating [network architecture (VLANs)](/unifi/#setting-up-the-networks-(vlans))
   - Creating [firewall rules](/unifi#firewall-rules) to enforce the architecture
   - Setting up [Wireguard](/unifi#wireguard) for remote access to the network
   - The Unifi part of [DDNS](/unifi#ddns), but you'll have to do some setup on your registrars site as well
+  - Adding a [Let's Encrypt certificate](/unifi#let's-encrypt) to avoid the annoying warnings about unprotected traffic
 
 
 ### [Proxmox](https://kmanc.github.io/unifi_network_setup/proxmox.html)
@@ -17,10 +18,6 @@ I tried to lay things out in an order that makes sense if you're starting from s
 
 ### [Home Assistant](https://kmanc.github.io/unifi_network_setup/home_assistant.html)
 - Home assistant on a Raspberry Pi, for flexibility on home automation
-
-
-### [Let's Encrypt certificate on devices](https://kmanc.github.io/unifi_network_setup/letsencrypt.html)
-- Add a certificate signed by Let's Encrypt to a named devices so that you get the warm and fuzzy lock in your browser
 
 
 ### [Dynamic DNS with Cloudflare](https://kmanc.github.io/unifi_network_setup/dynamicdns.html)
