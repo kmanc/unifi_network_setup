@@ -91,7 +91,7 @@ Repeat as necessary to get your desired results.
 > **Note:** If you plan on setting up Wireguard like I did, don't make your Wireguard VLAN here or you'll have to delete it later. I don't think this is the most intuitive setup, but that's just me.
 
 
-## <a href="#firewall">Firewall rules</a>
+## Firewall rules <p id="firewall"/>
 
 
 In order to prevent devices that don't need connectivity to actually be able to reach each other, I prefer firewall rules to Unifi's "Traffic Rules". They create firewall rules under the hood but don't work intuitively if you ask me.
