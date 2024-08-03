@@ -67,7 +67,7 @@ While here, I enabled SSH for my devices because I knew I'd need it later. Under
 ![](images/unifi_ui/07_account_creation_continued.png)
 
 
-## <a href="#vlans">Setting up the networks (VLANs)</a>
+## Setting up the networks (VLANs)
 
 
 Now I got to work building out the networks that I knew I would want. In general I created one network for each VLAN I knew I wanted, and enabled a wifi network on the ones where devices would need to be able to connect via wifi. Under the "Network" tab, "Settings" (the gear), and then "Networks" again I created my networks.
@@ -91,7 +91,7 @@ Repeat as necessary to get your desired results.
 > **Note:** If you plan on setting up Wireguard like I did, don't make your Wireguard VLAN here or you'll have to delete it later. I don't think this is the most intuitive setup, but that's just me.
 
 
-## Firewall rules <p id="firewall"/>
+## Firewall rules
 
 
 In order to prevent devices that don't need connectivity to actually be able to reach each other, I prefer firewall rules to Unifi's "Traffic Rules". They create firewall rules under the hood but don't work intuitively if you ask me.
@@ -118,7 +118,7 @@ Then I go into the "Unifi Devices" and "Client Devices" pages and make all the s
 [](images/unifi_ui/13_controller_hostname.png)
 
 
-## <a href="#wireguard">Wireguard</a>
+## Wireguard
 
 
 Wireguard is now supported natively on Unifi! This is pretty awesome, and pretty easy to set up. Under "Settings" (gear), "VPN", I created a Wireguard server and gave it a DNS name that I will later set up Dynamic DNS (DDNS) for. I also had to define the Wireguard VLAN _here_.
@@ -133,7 +133,7 @@ After that it's just a matter of clicking through client setup options and copyi
 [](images/unifi_ui/15_wireguard_client_setup.png)
 
 
-## <a href="#ddns">DDNS</a>
+## DDNS
 
 
 Setting up DDNS on the Unifi side is <easy??>
