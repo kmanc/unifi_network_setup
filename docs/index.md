@@ -16,7 +16,7 @@ I tried to lay things out in an order that makes sense if you're starting from s
 - My lab, which has a bunch of VMs on it for different uses
 
 
-### [Home Assistant](https://kmanc.github.io/unifi_network_setup/home_assistant.html)
+### [Home Assistant](https://kmanc.github.io/unifi_network_setup/homeassistant.html)
 - Home assistant on a Raspberry Pi, for flexibility on home automation
 
 
