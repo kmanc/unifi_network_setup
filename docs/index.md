@@ -5,8 +5,8 @@ I tried to lay things out in an order that makes sense if you're starting from s
 
 ### [Unifi](https://kmanc.github.io/unifi_network_setup/unifi.html)
 - What I did on the Cloud Key so I could manage the network the way I wanted to. This covers:
-  - Creating [network architecture (VLANs)](unifi#setting-up-the-networks-vlans)
-  - Creating [firewall rules](/unifi#firewall-rules) to enforce the architecture
+  - Creating [network architecture (VLANs)](unifi#vlans)
+  - Creating [firewall rules](/unifi#firewall) to enforce the architecture
   - Setting up [Wireguard](/unifi#wireguard) for remote access to the network
   - The Unifi part of [DDNS](/unifi#ddns), but you'll have to do some setup on your registrars site as well
   - Adding a [Let's Encrypt certificate](/unifi#let's-encrypt) to avoid the annoying warnings about unprotected traffic
