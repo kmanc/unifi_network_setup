@@ -64,7 +64,7 @@ Now create / edit the local account to your liking.
 While here, I enabled SSH for my devices because I knew I'd need it later. Under "Console Settings" there is a tick box for SSH.
 
 
-![](images/unifi_ui/07_account_creation_continued.png)
+![](images/unifi_ui/07_enable_ssh.png)
 
 
 ## Setting up the networks (VLANs)
@@ -136,11 +136,27 @@ After that it's just a matter of clicking through client setup options and copyi
 ## DDNS
 
 
-Setting up DDNS on the Unifi side is <easy??>
+(WIP) Setting up DDNS on the Unifi side is <easy??>
 
 
 [](images/unifi_ui/16_WIP.png)
 
+
+## Let's Encrypt Certificates
+
+Adding certificates to the CloudKey can be done in different ways and the process may vary depending on your domain registrar, but I'll outline what I did to get things running with Cloudflare
+
+First, I SSHed into the CloudKey and installed Python's pip
+
+[](images/unifi_ssh/00_install_pip_cloud_key.png)
+
+Then I used pip to install certbot
+
+[](images/unifi_ssh/01_pip_install_certbot.png)
+
+Last, I wrote [a shell script](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/cloudflare_lets_encrypt_renewer.sh) that auto-renews my certificate using the Cloudflare API, and created a cron job that renews the certificate once a month and copies it into the correct location on the CloudKey every time the device is rebooted (after a small delay)
+
+[](images/unifi_ssh/02_cronjob_cert_stuff.png)
 
 ---
 [Next up, Proxmox](https://kmanc.github.io/unifi_network_setup/proxmox.html)
