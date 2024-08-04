@@ -27,7 +27,7 @@ I tried to lay things out in an order that makes sense if you're starting from s
 ## My network
 
 
-![](/images/network_diagram.svg)
+<img src="/images/network_diagram.svg" alt="" />
 
 
 ### My network explained
