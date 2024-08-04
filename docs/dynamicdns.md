@@ -1,7 +1,7 @@
 # Dynamic DNS (DDNS)
 
 
-![](images/cloudflare/00_WIP.png)
+<img src="images/cloudflare/00_WIP.png" alt="" />
 
 
 ---
