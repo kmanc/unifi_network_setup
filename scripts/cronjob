@@ -1,0 +1,2 @@
+@reboot sleep 150 && cp /etc/letsencrypt/live/ENTER_FQDN_HERE/fullchain.pem /data/unifi-core/config/unifi-core.crt && cp /etc/letsencrypt/live/ENTER_FQDN_HERE/privkey.pem /data/unifi-core/config/unifi-core.key && systemctl restart unifi
+@monthly /opt/renew.sh && reboot now
