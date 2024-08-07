@@ -159,7 +159,7 @@ Then I used pip to install certbot
 <img src="images/unifi_ssh/01_pip_install_certbot.png" alt="" />
 
 
-Last, I wrote [a shell script](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/cloudflare_lets_encrypt_renewer.sh) that auto-renews my certificate using the Cloudflare API, and created a cron job that renews the certificate once a month and copies it into the correct location on the CloudKey every time the device is rebooted (after a small delay)
+Last, I wrote [a shell script that auto-renews my certificate](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/cloudflare_lets_encrypt_renewer.sh) using the Cloudflare API, and  [a shell script that applies it to the cloud key](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/lets_encrypt_certificate_applier.sh). A cron job runs the renewer script once a month and the applier script on each reboot, ensuring certificates are always up-to-date.
 
 
 <img src="images/unifi_ssh/02_cronjob_cert_stuff.png" alt="" />
