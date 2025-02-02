@@ -22,6 +22,21 @@ record_id=""
 # Variable for tracking which line that needs to be read for the DNS TXT challenge
 txt_record_line=-1
 
+# Make sure python3 is installed
+if ! command -v python3 &>/dev/null; then
+    apt update && apt install -y python3
+fi
+
+# Make sure python3's pip is installed
+if ! command -v pip3 &>/dev/null; then
+    apt install -y python3-pip
+fi
+
+# Make sure certbot is installed
+if ! command -v certbot  &>/dev/null; then
+    pip3 install certbot
+fi
+
 # Run certbot command and capture output line by line
 while IFS= read -r line; do
 
@@ -29,7 +44,7 @@ while IFS= read -r line; do
     if [[ "$line" == *"with the following value:"* ]]; then
         # Set a flag to read two lines later, which is where the TXT record actually is
         txt_record_line=2
-        
+
     elif [ "$txt_record_line" -eq 0 ]; then
         # In an abundance of caution, strip leading and trailing white space
         trimmed_txt_record="${line#"${line%%[![:space:]]*}"}"
@@ -47,7 +62,7 @@ while IFS= read -r line; do
                       \"comment\": \"Domain verification record\",
                       \"ttl\": 1
                     }")
-	record_id=$(echo "$resp" | awk -F'"id":"' '{print $2}' | awk -F'"' '{print $1}')
+        record_id=$(echo "$resp" | awk -F'"id":"' '{print $2}' | awk -F'"' '{print $1}')
     fi
     # Decrement the line tracker so it will only equal 0 two lines after the certbot output that says "with the following value:"
     (( txt_record_line-- ))
