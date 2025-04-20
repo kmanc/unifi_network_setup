@@ -1,0 +1,11 @@
+[Unit]
+Description=Apply Let's Encrypt certificate
+After=unifi.service
+Requires=unifi.service
+
+[Service]
+ExecStart=/opt/apply.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
