@@ -1,3 +1,1 @@
 @monthly /opt/renew.sh && reboot now
-@reboot sleep 150 && /opt/apply.sh
-0 3 * * * /opt/apply.sh
