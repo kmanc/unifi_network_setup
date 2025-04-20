@@ -1,1 +1,1 @@
-@monthly /opt/renew.sh && reboot now
+@monthly /opt/cloudflare_lets_encrypt_renewer.sh && reboot now
