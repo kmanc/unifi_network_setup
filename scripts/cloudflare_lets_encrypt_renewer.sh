@@ -75,3 +75,5 @@ resp=$(curl --request DELETE \
             --url "${API_BASE}${API_VERSION}${API_ENDPOINT}/${record_id}" \
             --header "Content-Type: application/json" \
             --header "Authorization: Bearer ${API_KEY}")
+
+/sbin/reboot
