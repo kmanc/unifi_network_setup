@@ -153,7 +153,7 @@ A cron job runs the renewer script once a month to ensure that the certificate i
 
 <img src="images/unifi_ssh/00_cronjob_cert_stuff.png" alt="" />
 
-The applier script is added as an override to the unifi service in systemd to force the cloud key to use the certificate the renewer script created. Running `systemctl edit target-service.service` and adding [this content in between the comment lines](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/certificate_apply_override) should set the script up for execution every time the unifi service starts.
+The applier script is added as an override to the unifi service in systemd to force the cloud key to use the certificate the renewer script created. Running `systemctl edit unifi.service` and adding [this content in between the comment lines](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/certificate_apply_override) should set the script up for execution every time the unifi service starts.
 
 <img src="images/unifi_ssh/01_systemd_override.png" alt="" />
 
