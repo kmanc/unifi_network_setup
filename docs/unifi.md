@@ -147,23 +147,15 @@ After that it's just a matter of clicking through client setup options and copyi
 
 Adding certificates to the CloudKey can be done in different ways and the process may vary depending on your domain registrar, but I'll outline what I did to get things running with Cloudflare
 
-First, I SSHed into the CloudKey and installed Python's pip
+I wrote [a shell script that auto-renews my certificate](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/cloudflare_lets_encrypt_renewer.sh) using the Cloudflare API, and [a shell script that applies it to the cloud key](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/lets_encrypt_certificate_applier.sh). 
 
+A cron job runs the renewer script once a month to ensure that the certificate is valid. Running `crontab -e` and putting the contents of [this content in it](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/cloud_key_cronjob) should accomplish the same.
 
-<img src="images/unifi_ssh/00_install_pip_cloud_key.png" alt="" />
+<img src="images/unifi_ssh/00_cronjob_cert_stuff.png" alt="" />
 
+The applier script is added as a systemd service that runs after the unifi service is loaded on each reboot to force the cloud key to use the certificate the renewer script created. Creating a file at `/etc/systemd/system/certificate_apply.service` with [this content in it](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/certificate_apply.service), then running `systemctl daemon-reexec`, `systemctl daemon-reload`, and `systemctl enable certificate_apply.service` will configure that boot script to run.
 
-Then I used pip to install certbot
-
-
-<img src="images/unifi_ssh/01_pip_install_certbot.png" alt="" />
-
-
-Last, I wrote [a shell script that auto-renews my certificate](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/cloudflare_lets_encrypt_renewer.sh) using the Cloudflare API, and  [a shell script that applies it to the cloud key](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/lets_encrypt_certificate_applier.sh). A cron job runs the renewer script once a month and the applier script on each reboot, ensuring certificates are always up-to-date.
-
-
-<img src="images/unifi_ssh/02_cronjob_cert_stuff.png" alt="" />
-
+<img src="images/unifi_ssh/01_systemd_boot_service.png" alt="" />
 
 ---
 [Next up, Proxmox](https://kmanc.github.io/unifi_network_setup/proxmox.html)
