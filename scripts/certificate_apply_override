@@ -1,3 +1,3 @@
 [Service]
 Type=notify
-ExecStartPost=+/opt/apply.sh
+ExecStartPost=+/opt/lets_encrypt_certificate_applier.sh
