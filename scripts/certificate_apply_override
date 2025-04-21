@@ -1,0 +1,2 @@
+[Service]
+ExecStartPost=/opt/apply.sh

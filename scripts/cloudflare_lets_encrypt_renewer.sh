@@ -13,6 +13,20 @@ EMAIL="INSERT_EMAIL"
 SUBDOMAIN="INSERT_SUBDOMAIN"
 TLD="INSERT TLD"
 
+# Let's Encrypt constants
+LE_BASE="/etc/letsencrypt"
+LE_ARCHIVE_BASE="${LE_BASE}/archive"
+LE_ARCHIVE_LOCATION="${LE_ARCHIVE_BASE}/${SUBDOMAIN}.${DOMAIN}.${TLD}"
+LE_LIVE_BASE="${LE_BASE}/live"
+LE_LIVE_LOCATION="${LE_LIVE_BASE}/${SUBDOMAIN}.${DOMAIN}.${TLD}"
+LE_FULL_CHAIN=$(readlink -f "${LE_LIVE_LOCATION}/fullchain.pem")
+LE_PRIV_KEY=$(readlink -f "${LE_LIVE_LOCATION}/privkey.pem")
+
+# Unifi constants
+CORE_BASE="/data/unifi-core/config"
+CRT_FILE="${CORE_BASE}/unifi-core.crt"
+KEY_FILE="${CORE_BASE}/unifi-core.key"
+
 # Other constants
 SLEEP_TIME=120
 
@@ -27,12 +41,12 @@ if ! command -v python3 &>/dev/null; then
     apt update && apt install -y python3
 fi
 
-# Make sure python3's pip is installed
+# Make sure pip is also installed
 if ! command -v pip3 &>/dev/null; then
     apt install -y python3-pip
 fi
 
-# Make sure certbot is installed
+# Finally, make sure certbot is installed
 if ! command -v certbot  &>/dev/null; then
     pip3 install certbot
 fi
@@ -62,7 +76,7 @@ while IFS= read -r line; do
                       \"comment\": \"Domain verification record\",
                       \"ttl\": 1
                     }")
-        record_id=$(echo "$resp" | awk -F'"id":"' '{print $2}' | awk -F'"' '{print $1}')
+	record_id=$(echo "$resp" | awk -F'"id":"' '{print $2}' | awk -F'"' '{print $1}')
     fi
     # Decrement the line tracker so it will only equal 0 two lines after the certbot output that says "with the following value:"
     (( txt_record_line-- ))
@@ -75,4 +89,23 @@ resp=$(curl --request DELETE \
             --url "${API_BASE}${API_VERSION}${API_ENDPOINT}/${record_id}" \
             --header "Content-Type: application/json" \
             --header "Authorization: Bearer ${API_KEY}")
- 
+
+# Make sure unifi account can access the directories it will need
+
+for dir in /etc "${LE_BASE}" "${LE_ARCHIVE_BASE}" "${LE_ARCHIVE_LOCATION}" "${LE_LIVE_BASE}" "${LE_LIVE_LOCATION}"; do
+    chmod o+x "$dir"
+done
+
+chmod o+wx "${CORE_BASE}"
+
+# Change file ownership
+
+chown unifi "${LE_FULL_CHAIN}"
+
+chown unifi "${LE_PRIV_KEY}"
+
+chown unifi "${CRT_FILE}"
+
+chown unifi "${KEY_FILE}"
+
+/sbin/reboot
