@@ -1,2 +1,2 @@
 @monthly /opt/cloudflare_lets_encrypt_renewer.sh
-0 0 * * * systemctl restart unifi
+5 0 * * * systemctl restart unifi
