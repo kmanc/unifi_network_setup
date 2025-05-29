@@ -136,7 +136,7 @@ After that it's just a matter of clicking through client setup options and copyi
 ## DDNS
 
 
-(WIP) Setting up DDNS on the Unifi side is pretty easy. See [the DDNS page](https://kmanc.github.io/unifi_network_setup/dynamicdns.html) for details.
+Setting up DDNS on the Unifi side is pretty easy. See [the DDNS page](https://kmanc.github.io/unifi_network_setup/dynamicdns.html) for details.
 
 
 <img src="images/unifi_ui/16_WIP.png" alt="" />

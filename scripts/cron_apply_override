@@ -1,0 +1,2 @@
+[Service]
+ExecStartPost=+/opt/reset_cron.sh
