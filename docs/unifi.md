@@ -149,13 +149,22 @@ Adding certificates to the CloudKey can be done in different ways and the proces
 
 I wrote [a shell script that auto-renews my certificate](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/cloudflare_lets_encrypt_renewer.sh) using the Cloudflare API, and [a shell script that applies it to the cloud key](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/lets_encrypt_certificate_applier.sh). 
 
-A cron job runs the renewer script once a month to ensure that the certificate is valid. Running `crontab -e` and putting the contents of [this content in it](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/cloud_key_cronjob) should accomplish the same.
+Two cron jobs run in order to ensure that the certificate is valid.
 
-<img src="images/unifi_ssh/00_cronjob_cert_stuff.png" alt="" />
+1. Every month the certificate renew script runs so that the certificate updates before it expires
+2. Every morning the Unifi service restarts because for some reason it likes to reset the certificate it uses to the factory default
+
+Any time the Unifi application updates, it clears the crontab. To get around this, I wrote a script that updates the crontab to the contents of a `cron.jobs` file and added it as an override to the cron service in systemd. This means every time the cron service starts, the script will run and put the `cron.jobs` file contents in the crontab.
+
+<img src="images/unifi_ssh/00_reset_cron.png" alt="" />
+
+<img src="images/unifi_ssh/01_cron_jobs.png" alt="" />
+
+<img src="images/unifi_ssh/02_cron_systemd_override.png" alt="" />
 
 The applier script is added as an override to the unifi service in systemd to force the cloud key to use the certificate the renewer script created. Running `systemctl edit unifi` and adding [this content in between the comment lines](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/certificate_apply_override) should set the script up for execution every time the unifi service starts.
 
-<img src="images/unifi_ssh/01_unifi_systemd_override.png" alt="" />
+<img src="images/unifi_ssh/03_unifi_systemd_override.png" alt="" />
 
 ---
 [Next up, Proxmox](https://kmanc.github.io/unifi_network_setup/proxmox.html)
