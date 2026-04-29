@@ -15,3 +15,8 @@ KEY_FILE="/data/unifi-core/config/unifi-core.key"
 
 /bin/cp "${LE_FULL_CHAIN}" "${CRT_FILE}"
 /bin/cp "${LE_PRIV_KEY}" "${KEY_FILE}"
+
+/bin/chown root:ssl-cert "${CRT_FILE}" "${KEY_FILE}"
+
+/bin/chmod 644 "${CRT_FILE}"
+/bin/chmod 600 "${KEY_FILE}"
