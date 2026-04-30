@@ -1,3 +1,0 @@
-[Service]
-Type=notify
-ExecStartPost=+/opt/acme_certificate_applier.sh
