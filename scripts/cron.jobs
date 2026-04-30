@@ -1,1 +1,1 @@
-23 2 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null && /opt/acme_certificate_applier.sh
+23 2 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null
