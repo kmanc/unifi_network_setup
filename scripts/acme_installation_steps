@@ -4,3 +4,5 @@ export CF_Token="CF_TOKEN_HERE"
 export CF_Account_ID="CF_ACCOUNT_HERE"
 acme.sh --issue --dns dns_cf -d subdomain.domain.tld --force
 acme.sh --deploy -d subdomain.domain.tld --deploy-hook unifi
+Add certificate_apply_override to unifi and unifi-core
+Add cron_apply_override to cron
