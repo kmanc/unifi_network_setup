@@ -1,0 +1,11 @@
+# /etc/systemd/system/certificate_override.service
+[Unit]
+Description=Replace UniFi self-signed cert with ACME cert
+After=unifi-core.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/acme_certificate_applier.sh
+
+[Install]
+WantedBy=multi-user.target
