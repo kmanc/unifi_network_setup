@@ -20,3 +20,5 @@ KEY_FILE="/data/unifi-core/config/unifi-core.key"
 
 /bin/chmod 644 "${CRT_FILE}"
 /bin/chmod 600 "${KEY_FILE}"
+
+/bin/systemctl restart unifi-core
