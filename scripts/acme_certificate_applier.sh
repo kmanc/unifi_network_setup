@@ -28,8 +28,7 @@ TEMP_P12="/tmp/unifi.p12"
 /bin/chmod 644 "${CRT_FILE}"
 /bin/chmod 600 "${KEY_FILE}"
 
-# Import the key to the keystore
-
+# Export the key for use in the keystore
 /usr/bin/openssl pkcs12 -export \
     -in "${FULL_CHAIN}" \
     -inkey "${PRIV_KEY}" \
