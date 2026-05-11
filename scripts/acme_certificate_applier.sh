@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Domain and DNS constants
-DOMAIN="koins"
-SUBDOMAIN="controller"
-TLD="cloud"
+SUBDOMAIN="goes"
+DOMAIN="content"
+TLD="here"
 
 # ACME constants
 FULL_CHAIN="/root/.acme.sh/${SUBDOMAIN}.${DOMAIN}.${TLD}_ecc/fullchain.cer"
