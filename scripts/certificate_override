@@ -9,3 +9,6 @@ ExecStart=/opt/acme_certificate_applier.sh
 
 [Install]
 WantedBy=multi-user.target
+
+# systemctl daemon-reload
+# systemctl enable unifi-core-cert-override.service
