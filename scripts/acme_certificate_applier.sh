@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Domain and DNS constants
-SUBDOMAIN="goes"
-DOMAIN="content"
-TLD="here"
+SUBDOMAIN="INSERT SUB"
+DOMAIN="INSERT DOMAIN"
+TLD="INSERT TLD"
 
 # ACME constants
 FULL_CHAIN="/root/.acme.sh/${SUBDOMAIN}.${DOMAIN}.${TLD}_ecc/fullchain.cer"
