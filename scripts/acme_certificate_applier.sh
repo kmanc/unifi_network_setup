@@ -7,8 +7,8 @@ TLD="ZZZZZZZZZZZZZ"
 FQDN="${SUBDOMAIN}.${DOMAIN}.${TLD}"
 
 # ACME constants
-FULL_CHAIN="/root/.acme.sh/${FQDN}_ecc/fullchain.cer"
-PRIV_KEY="/root/.acme.sh/${FQDN}_ecc/${FQDN}.key"
+FULL_CHAIN="/root/.acme.sh/${FQDN}/fullchain.cer"
+PRIV_KEY="/root/.acme.sh/${FQDN}/${FQDN}.key"
 
 # Unifi constants
 CRT_FILE="/data/unifi-core/config/unifi-core.crt"
