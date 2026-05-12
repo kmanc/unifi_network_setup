@@ -178,7 +178,6 @@ Issue and deploy the certificate
 acme.sh --issue --dns dns_cf -d SUBDOMAIN.DOMAIN.TLD --keylength 2048
 acme.sh --deploy -d SUBDOMAIN.DOMAIN.TLD --deploy-hook unifi
 ```
-]
 
 Created a script to reset the crontab in case they get reset
 
