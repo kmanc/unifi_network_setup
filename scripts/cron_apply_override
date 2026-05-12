@@ -1,2 +1,3 @@
+# systemctl edit cron
 [Service]
 ExecStartPost=+/opt/reset_cron.sh
