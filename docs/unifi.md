@@ -191,9 +191,5 @@ Last, I added the script as an override to the cron service in systemd by runnin
 
 <img src="images/unifi_ssh/02_cron_systemd_override.png" alt="" />
 
-The script that applies the certificate to the console is also added as an override, this time to the unifi service in systemd to force the cloud key to use the certificate the renewer script created. Running `systemctl edit unifi` and adding [this content in between the comment lines](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/certificate_apply_override) should set the script up for execution every time the unifi service starts.
-
-<img src="images/unifi_ssh/03_unifi_systemd_override.png" alt="" />
-
 ---
 [Next up, Proxmox](https://kmanc.github.io/unifi_network_setup/proxmox.html)
