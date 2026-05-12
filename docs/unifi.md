@@ -147,14 +147,40 @@ Setting up DDNS on the Unifi side is pretty easy. See [the DDNS page](https://km
 
 Adding certificates to the CloudKey can be done in different ways and the process may vary depending on your domain registrar, but I'll outline what I did to get things running with Cloudflare
 
-I wrote [a shell script that auto-renews my certificate](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/cloudflare_lets_encrypt_renewer.sh) using the Cloudflare API, and [a shell script that applies it to the cloud key](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/lets_encrypt_certificate_applier.sh). 
+Install `acme.sh`
 
-Two cron jobs run in order to ensure that the certificate is valid.
+```
+curl https://get.acme.sh | sh
+```
 
-1. Every month the certificate renew script runs so that the certificate updates before it expires
-2. Every morning the Unifi service restarts because for some reason it likes to reset the certificate it uses to the factory default
+Resource the shell
 
-Any time the Unifi application updates, it clears the crontab. To get around this, I wrote [a script](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/reset_cron.sh) that updates the crontab to the contents of a [`cron.jobs`](https://github.com/kmanc/unifi_network_setup/blob/main/scripts/cron.jobs) file.
+```
+source ~/.bashrc
+```
+
+Set the certificate authority to Let's Encrypt
+
+```
+acme.sh --set-default-ca --server letsencrypt
+```
+
+Set Cloudflare envuronment variables
+
+```
+export CF_Token="API_TOKEN"
+export CF_Account_ID="ACCOUNT_ID"
+```
+
+Issue and deploy the certificate
+
+```
+acme.sh --issue --dns dns_cf -d SUBDOMAIN.DOMAIN.TLD --keylength 2048
+acme.sh --deploy -d SUBDOMAIN.DOMAIN.TLD --deploy-hook unifi
+```
+]
+
+Created a script to reset the crontab in case they get reset
 
 <img src="images/unifi_ssh/00_reset_cron.png" alt="" />
 
